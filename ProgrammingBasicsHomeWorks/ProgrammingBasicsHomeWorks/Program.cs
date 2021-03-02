@@ -6,9 +6,7 @@ namespace ProgrammingBasicsHomeWorks
     {
         static void Main(string[] args)
         {
-            // Variables
             {
-                // переменные без смысла (без кода) трудно называть осмысленно
                 int score;
                 uint lederboardPosition;
                 float result;
@@ -25,10 +23,6 @@ namespace ProgrammingBasicsHomeWorks
 
                 bool isNumber;
             }
-
-            
-
         }
-
     }
 }
