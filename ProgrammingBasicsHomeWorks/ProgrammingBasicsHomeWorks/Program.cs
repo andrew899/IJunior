@@ -7,21 +7,14 @@ namespace ProgrammingBasicsHomeWorks
         static void Main(string[] args)
         {
             {
-                int score;
-                uint lederboardPosition;
-                float result;
+                int picturesAmount = 52;
+                int rowSize = 3;
 
-                string name;
-                string surname;
-
-                char simbol;
-
-                double money;
-
-                uint serialNumber;
-                uint postCode;
-
-                bool isNumber;
+                int fullRows = picturesAmount / rowSize; 
+                int lastRow = picturesAmount % rowSize;
+                
+                Console.WriteLine($"Рядов заполненых картинками: {picturesAmount}.");
+                Console.WriteLine($"Каартинок в неполном ряде: {lastRow}.");
             }
         }
     }
