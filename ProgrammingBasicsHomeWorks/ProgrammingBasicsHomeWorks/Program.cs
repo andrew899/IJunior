@@ -12,7 +12,7 @@ namespace ProgrammingBasicsHomeWorks
                 int playerMoney = 0;
                 int priceCrystal = random.Next(1, 101);
 
-                int demandToBuy = 0;
+                int playerWantToBuy = 0;
                 int fullPrice = 0;
 
                 Console.WriteLine("Welcom to our shop!");
@@ -21,12 +21,12 @@ namespace ProgrammingBasicsHomeWorks
                 playerMoney =  Int32.Parse(Console.ReadLine());
 
                 Console.Write("How many crystals do you want to buy? ");
-                demandToBuy =  Int32.Parse(Console.ReadLine());
+                playerWantToBuy =  Int32.Parse(Console.ReadLine());
 
-                fullPrice = demandToBuy * priceCrystal;
+                fullPrice = playerWantToBuy * priceCrystal;
                 playerMoney = playerMoney - fullPrice;
 
-                Console.WriteLine($"You bought: {demandToBuy}.");
+                Console.WriteLine($"You bought: {playerWantToBuy}.");
                 Console.WriteLine($"Money left: {playerMoney}.");
             }
         }
