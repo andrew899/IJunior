@@ -7,27 +7,21 @@ namespace ProgrammingBasicsHomeWorks
         static void Main(string[] args)
         {
             {
-                Random random = new Random();
+                int timeInLine = 10;
+                int amountPeopleInLine = 0;
 
-                int playerMoney = 0;
-                int priceCrystal = random.Next(1, 101);
+                int fullWaiteTime = 0;
+                int hoursToWaite = 0;
+                int minutesToWaite = 0;
 
-                int playerWantToBuy = 0;
-                int fullPrice = 0;
+                Console.Write("How many people in line: ");
+                amountPeopleInLine = Int32.Parse(Console.ReadLine());
 
-                Console.WriteLine("Welcom to our shop!");
-                Console.WriteLine($"One crystal costs: {priceCrystal}");
-                Console.Write("How much money do you have? ");
-                playerMoney =  Int32.Parse(Console.ReadLine());
+                fullWaiteTime = timeInLine * amountPeopleInLine;
+                hoursToWaite = fullWaiteTime / 60;
+                minutesToWaite = fullWaiteTime % 60;
 
-                Console.Write("How many crystals do you want to buy? ");
-                playerWantToBuy =  Int32.Parse(Console.ReadLine());
-
-                fullPrice = playerWantToBuy * priceCrystal;
-                playerMoney = playerMoney - fullPrice;
-
-                Console.WriteLine($"You bought: {playerWantToBuy}.");
-                Console.WriteLine($"Money left: {playerMoney}.");
+                Console.WriteLine($"Wait for {hoursToWaite} hour(s) and {minutesToWaite} minute(s)");
             }
         }
     }
