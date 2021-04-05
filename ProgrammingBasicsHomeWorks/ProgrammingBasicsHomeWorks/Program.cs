@@ -7,21 +7,31 @@ namespace ProgrammingBasicsHomeWorks
         static void Main(string[] args)
         {
             {
-                int timeInLine = 10;
-                int amountPeopleInLine = 0;
+                string name;
+                string surname;
 
-                int fullWaiteTime = 0;
-                int hoursToWaite = 0;
-                int minutesToWaite = 0;
+                int age;
+                string zodiacSign;
+                string workplace;
 
-                Console.Write("How many people in line: ");
-                amountPeopleInLine = Int32.Parse(Console.ReadLine());
+                Console.Write("What are your name: ");
+                name = Console.ReadLine();
 
-                fullWaiteTime = timeInLine * amountPeopleInLine;
-                hoursToWaite = fullWaiteTime / 60;
-                minutesToWaite = fullWaiteTime % 60;
+                Console.Write("What are your surname: ");
+                surname = Console.ReadLine();
 
-                Console.WriteLine($"Wait for {hoursToWaite} hour(s) and {minutesToWaite} minute(s)");
+                Console.Write("What are your age: ");
+                age = Int32.Parse(Console.ReadLine());
+
+                Console.Write("What are your zodiac: ");
+                zodiacSign = Console.ReadLine();
+
+                Console.Write("Where do you work: ");
+                workplace = Console.ReadLine();
+
+                Console.Write($"Your name is {surname} {name}. \n" +
+                    $"You are {age} years old. \n" +
+                    $"You are {zodiacSign} and you work at {workplace}.");
             }
         }
     }
