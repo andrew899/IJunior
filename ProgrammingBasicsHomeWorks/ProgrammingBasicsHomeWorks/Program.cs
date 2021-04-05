@@ -7,31 +7,20 @@ namespace ProgrammingBasicsHomeWorks
         static void Main(string[] args)
         {
             {
-                string name;
-                string surname;
+                bool exit = false;
+                string exitWord = "exit";
+                string userInput = "";
 
-                int age;
-                string zodiacSign;
-                string workplace;
+                while (!exit)
+                {
+                    Console.WriteLine("Write \"Exit\" to end this loop.");
+                    userInput = Console.ReadLine();
 
-                Console.Write("What are your name: ");
-                name = Console.ReadLine();
-
-                Console.Write("What are your surname: ");
-                surname = Console.ReadLine();
-
-                Console.Write("What are your age: ");
-                age = Int32.Parse(Console.ReadLine());
-
-                Console.Write("What are your zodiac: ");
-                zodiacSign = Console.ReadLine();
-
-                Console.Write("Where do you work: ");
-                workplace = Console.ReadLine();
-
-                Console.Write($"Your name is {surname} {name}. \n" +
-                    $"You are {age} years old. \n" +
-                    $"You are {zodiacSign} and you work at {workplace}.");
+                    if(userInput.ToLower() == exitWord)
+                        break;
+                    else
+                        Console.WriteLine($"\"{userInput}\" is not \"Exit\". Try again.");
+                }
             }
         }
     }
