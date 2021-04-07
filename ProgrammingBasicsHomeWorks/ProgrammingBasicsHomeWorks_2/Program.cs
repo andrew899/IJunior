@@ -10,11 +10,10 @@ namespace ProgrammingBasicsHomeWorks_2
             int walletEUR = 1000;
             int walletRUS = 1000;
 
-            int convertCostUSDToRUS = 60;
-            int convertCostEURToRUS = 80;
-            int convertCostRUSToUSD = 70;
-            int convertCostRUSToEUR = 90;
-
+            int convertCostUSDToRUS = 10;
+            int convertCostUSDToEUR = 20;
+            int convertCostEURToRUS = 30;
+            
             int sumToConvert = 0;
 
             bool exit = false;
@@ -24,11 +23,13 @@ namespace ProgrammingBasicsHomeWorks_2
 
                 Console.WriteLine($"Your balance: \n USD : {walletUSD} \n EUR : {walletEUR} \n RUS : {walletRUS}");
                 Console.WriteLine("1. Conwert USD to RUS.");
-                Console.WriteLine("2. Conwert EUR to RUS.");
-                Console.WriteLine("3. Conwert RUS to USD.");
-                Console.WriteLine("4. Conwert RUS to EUR.");
-                Console.WriteLine("5. Exit");
-                
+                Console.WriteLine("2. Conwert USD to EUR.");
+                Console.WriteLine("3. Conwert EUR to RUS.");
+                Console.WriteLine("4. Conwert EUR to USD."); // to do
+                Console.WriteLine("5. Conwert RUS to USD.");
+                Console.WriteLine("6. Conwert RUS to EUR.");
+                Console.WriteLine("7. Exit");
+
                 menuItem = Int32.Parse(Console.ReadLine());
 
                 switch (menuItem)
@@ -37,47 +38,91 @@ namespace ProgrammingBasicsHomeWorks_2
                         {
                             Console.Write("How much USD to convert: ");
                             sumToConvert = Int32.Parse(Console.ReadLine());
+                            if (sumToConvert > walletUSD)
+                            {
+                                Console.WriteLine($"You do not have {sumToConvert} USD in your wallet.");
+                                break;
+                            }
                             walletUSD -= sumToConvert;
-                            walletRUS = sumToConvert * convertCostUSDToRUS;
+                            walletRUS += sumToConvert * convertCostUSDToRUS;
                             break;
                         }
                     case 2:
                         {
-                            Console.Write("How much EUR to convert: ");
+                            Console.Write("How much USD to convert: ");
                             sumToConvert = Int32.Parse(Console.ReadLine());
-                            walletEUR -= sumToConvert;
-                            walletRUS = sumToConvert * convertCostEURToRUS;
+                            if (sumToConvert > walletUSD)
+                            {
+                                Console.WriteLine($"You do not have {sumToConvert} USD in your wallet.");
+                                break;
+                            }
+                            walletUSD -= sumToConvert;
+                            walletEUR += sumToConvert * convertCostUSDToEUR;
                             break;
                         }
                     case 3:
                         {
-                            Console.Write("How much RUS to convert: ");
+                            Console.Write("How much EUR to convert: ");
                             sumToConvert = Int32.Parse(Console.ReadLine());
-                            walletRUS -= sumToConvert;
-                            walletUSD = sumToConvert / convertCostRUSToUSD;
-                            walletRUS += sumToConvert % convertCostRUSToUSD;
+                            if (sumToConvert > walletEUR)
+                            {
+                                Console.WriteLine($"You do not have {sumToConvert} EUR in your wallet.");
+                                break;
+                            }
+                            walletEUR -= sumToConvert;
+                            walletRUS += sumToConvert * convertCostEURToRUS;
                             break;
                         }
                     case 4:
                         {
-                            Console.Write("How much RUS to convert: ");
+                            Console.Write("How much EUR to convert: ");
                             sumToConvert = Int32.Parse(Console.ReadLine());
-                            walletRUS -= sumToConvert;
-                            walletEUR = sumToConvert / convertCostRUSToEUR;
-                            walletRUS += sumToConvert % convertCostRUSToEUR;
+                            if (sumToConvert > walletEUR)
+                            {
+                                Console.WriteLine($"You do not have {sumToConvert} EUR in your wallet.");
+                                break;
+                            }
+                            walletEUR -= sumToConvert;
+                            walletUSD += sumToConvert * convertCostUSDToEUR;
                             break;
                         }
-                    case 5: 
+                    case 5:
+                        {
+                            Console.Write("How much RUS to convert: ");
+                            sumToConvert = Int32.Parse(Console.ReadLine());
+                            if (sumToConvert > walletRUS)
+                            {
+                                Console.WriteLine($"You do not have {sumToConvert} RUS in your wallet.");
+                                break;
+                            }
+                            walletRUS -= sumToConvert;
+                            walletUSD += sumToConvert * convertCostUSDToRUS;
+                            break;
+                        }
+                    case 6:
+                        {
+                            Console.Write("How much RUS to convert: ");
+                            sumToConvert = Int32.Parse(Console.ReadLine());
+                            if (sumToConvert > walletRUS)
+                            {
+                                Console.WriteLine($"You do not have {sumToConvert} RUS in your wallet.");
+                                break;
+                            }
+                            walletRUS -= sumToConvert;
+                            walletEUR += sumToConvert * convertCostEURToRUS;
+                            break;
+                        }
+                    case 7:
                         {
                             exit = true;
-                            break; 
+                            break;
                         }
                     default:
                         {
                             Console.WriteLine("Wrong input. Try againe.");
                             break;
                         }
-                        
+
                 }
             }
         }
