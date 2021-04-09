@@ -6,104 +6,43 @@ namespace ProgrammingBasicsHomeWorks
     {
         static void Main(string[] args)
         {
-            string name = "Vasia";
-            string password = "root";
+            string name = "Alexey";
+            char symbol = '%';
 
-            bool exit = false;
+            Console.Write("Enter your string: ");
+            name = Console.ReadLine();
 
-            while (!exit)
+            Console.Write("Enter your symbol: ");
+            symbol = Console.ReadKey().KeyChar;
+            Console.WriteLine();
+
+            int leftborder = 1;
+            int rightborder = 1;
+            int leftPadinng = 1;
+            int rightPadinng = 1;
+
+            int lineAmount = 3;
+            int lineLenth = leftborder + leftPadinng + name.Length + rightPadinng + rightborder;
+
+            for (int i = 0; i < lineAmount; i++)
             {
-                Console.WriteLine("1. Set Name.");
-                Console.WriteLine("2. Set Password.");
-                Console.WriteLine("3. Get Name (need password).");
-                Console.WriteLine("4. Change Console Color.");
-                Console.WriteLine("5. Exit.");
-
-                int menuItem = Int32.Parse(Console.ReadLine());
-
-                switch (menuItem)
+                for (int j = 0; j < lineLenth; j++)
                 {
-                    case 1:
-                        {
-                            Console.Write("What is your name: ");
-                            name = Console.ReadLine();
-                            break;
-                        }
-                    case 2:
-                        {
-                            Console.Write("What is your password: ");
-                            password = Console.ReadLine().ToLower();
-                            break;
-                        }
-                    case 3:
-                        {
-                            Console.Write("Password: ");
-                            string passInput = Console.ReadLine().ToLower();
-                            if (passInput == password)
-                                Console.WriteLine($"Your name is {name}");
-                            else
-                                Console.WriteLine("Wrong password!!!");
-                            break;
-                        }
-                    case 4:
-                        {
-                            Console.WriteLine("1. Set Red.");
-                            Console.WriteLine("2. Set Green.");
-                            Console.WriteLine("3. Set Yellow.");
-                            Console.WriteLine("4. Set Magenta.");
-                            Console.WriteLine("5. Reset default.");
-
-                            int menuItemConsoleColor = Int32.Parse(Console.ReadLine());
-
-                            switch (menuItemConsoleColor)
-                            {
-                                case 1:
-                                    {
-                                        Console.BackgroundColor = ConsoleColor.Red;
-                                        break;
-                                    }
-                                case 2:
-                                    {
-                                        Console.BackgroundColor = ConsoleColor.Green;
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        Console.BackgroundColor = ConsoleColor.Yellow;
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        Console.BackgroundColor = ConsoleColor.Magenta;
-                                        break;
-                                    }
-
-                                case 5:
-                                    {
-                                        Console.ResetColor();
-                                        break;
-                                    }
-
-                                default:
-                                    {
-                                        Console.WriteLine("Wrong input. Try again.");
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-                    case 5:
-                        {
-                            exit = true;
-                            break;
-                        }
-                    default:
-                        {
-                            Console.WriteLine("Wrong input. Try againe.");
-                            break;
-                        }
+                    if (i == 0 || i == (lineAmount - 1))
+                        Console.Write(symbol);
+                    else if (j < rightborder || j == lineLenth - 1)
+                        Console.Write(symbol);
+                    else if (j == leftborder + leftPadinng)
+                    {
+                        Console.Write(name);
+                        j += name.Length - 1;
+                    }
+                    else
+                        Console.Write(" ");
                 }
+                Console.WriteLine();
             }
+
         }
     }
 }
